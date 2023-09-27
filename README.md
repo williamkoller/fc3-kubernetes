@@ -64,3 +64,15 @@
 #### Docker push
 
 - `docker push williamkoller/hello-go`
+
+#### Apply Pod
+
+- `kube apply -f k8s/pod.yaml`
+
+#### Get Pod
+
+- `kube get pod`
+
+#### Redirect port
+
+- `kube port-forward pod/goserver 8000:80`
