@@ -104,3 +104,8 @@
 - `kube apply -f k8s/replicaset.yaml`
 - `kube apply -f k8s/service.yaml`
 - `kube port-forward service/goserver-service 9001:80`
+
+
+#### Kubernetes watch
+
+- `kube apply -f k8s/deployment-healthz.yaml && watch -n1 kubectl get pods`

@@ -6,9 +6,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
+var startedAt = time.Now()
+
 func main() {
+	http.HandleFunc("/healthz", Healthz)
 	http.HandleFunc("/secret", Secret)
 	http.HandleFunc("/configmap", ConfigMap)
 	http.HandleFunc("/", Hello)
@@ -37,4 +41,17 @@ func Secret(w http.ResponseWriter, r *http.Request) {
 	pass := os.Getenv("PASS")
 
 	fmt.Fprintf(w, "User: %s. Password: %s", user, pass)
+}
+
+func Healthz(w http.ResponseWriter, r *http.Request) {
+
+	duration := time.Since(startedAt)
+
+	if duration.Seconds() < 10 || duration.Seconds() > 30 {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
+	} else {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	}
 }
