@@ -94,3 +94,13 @@
 #### Historic deployment
 
 - `kube describe deployment`
+
+#### Service
+
+- `kube get service`
+
+#### Kubernetes run
+
+- `kube apply -f k8s/replicaset.yaml`
+- `kube apply -f k8s/service.yaml`
+- `kube port-forward service/goserver-service 9001:80`
