@@ -84,3 +84,13 @@
 #### Describe Pod
 
 - `kube describe pod goserver-4gtdw`
+
+#### Rollout
+
+- `kube rollout history deployment goserver`
+- rollout last version `kube rollout undo deployment goserver`
+- `kube rollout undo deployment goserver --to-revision=2`
+
+#### Historic deployment
+
+- `kube describe deployment`
