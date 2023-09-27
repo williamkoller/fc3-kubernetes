@@ -76,3 +76,11 @@
 #### Redirect port
 
 - `kube port-forward pod/goserver 8000:80`
+
+#### View replicasets
+
+- `kube get replicasets`
+
+#### Describe Pod
+
+- `kube describe pod goserver-4gtdw`
