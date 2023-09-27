@@ -44,3 +44,23 @@
 #### Delete cluster
 
 - `kind delete clusters 'name'`
+
+#### View config cluster
+
+- `kube config get-clusters`
+
+#### Change config
+
+- `kube config use-context kind-fullcycle`
+
+#### Docker build
+
+- `docker build -t williamkoller/hello-go .`
+
+#### Docker run
+
+- `docker run --rm -p 80:80 williamkoller/hello-go`
+
+#### Docker push
+
+- `docker push williamkoller/hello-go`
